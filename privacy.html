@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhotoEye Pro — Privacy Policy</title>
+  <style>
+    :root {
+      --bg: #08080f;
+      --surface: #111120;
+      --surface2: #16162a;
+      --border: rgba(255,255,255,0.07);
+      --accent: #00d4ff;
+      --muted: rgba(255,255,255,0.45);
+      --green: #00e87a;
+      --indigo: #7c6bff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0;
+      background: rgba(8,8,15,0.88);
+      backdrop-filter: blur(20px);
+      z-index: 100;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo span { font-size: 18px; font-weight: 700; color: #fff; }
+    .nav-back {
+      display: flex; align-items: center; gap: 6px;
+      color: var(--muted); text-decoration: none;
+      font-size: 14px; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: #fff; }
+    .nav-back svg { width: 16px; height: 16px; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(0,212,255,0.08) 0%, transparent 70%);
+    }
+    .hero-icon {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(124,107,255,0.15));
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px;
+      margin: 0 auto 28px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero-meta {
+      display: flex; align-items: center; justify-content: center; gap: 20px;
+      flex-wrap: wrap; margin-top: 20px;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(0,232,122,0.08);
+      border: 1px solid rgba(0,232,122,0.2);
+      color: var(--green);
+      border-radius: 100px; padding: 6px 14px;
+      font-size: 12px; font-weight: 600;
+    }
+    .badge-date {
+      color: var(--muted); font-size: 13px;
+    }
+
+    /* SUMMARY CARDS */
+    .summary {
+      max-width: 900px; margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+    .summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .summary-card .icon {
+      font-size: 24px;
+      min-width: 40px; height: 40px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .summary-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .summary-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* CONTENT */
+    .content {
+      max-width: 780px; margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+    .section-block {
+      margin-bottom: 48px;
+    }
+    .section-number {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      color: var(--accent); text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-block h2 {
+      font-size: 24px; font-weight: 800; letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .section-block p {
+      font-size: 15px; color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .section-block ul {
+      list-style: none; padding: 0;
+      display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 12px;
+    }
+    .section-block ul li {
+      display: flex; gap: 12px; align-items: flex-start;
+      font-size: 15px; color: var(--muted);
+    }
+    .section-block ul li::before {
+      content: "";
+      min-width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 8px;
+    }
+    .highlight-box {
+      background: rgba(0,232,122,0.05);
+      border: 1px solid rgba(0,232,122,0.15);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin: 16px 0;
+    }
+    .highlight-box p {
+      color: rgba(255,255,255,0.7) !important;
+      margin: 0 !important;
+      font-size: 14px !important;
+    }
+    .highlight-box strong { color: var(--green); }
+
+    /* CONTACT CARD */
+    .contact-final {
+      max-width: 780px; margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+    .contact-card {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 48px;
+      text-align: center;
+    }
+    .contact-card h2 { font-size: 26px; font-weight: 800; margin-bottom: 10px; }
+    .contact-card p { color: var(--muted); margin-bottom: 28px; font-size: 15px; }
+    .btn-email {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: #000;
+      padding: 14px 28px; border-radius: 14px;
+      font-weight: 700; font-size: 15px;
+      text-decoration: none; transition: opacity .2s;
+    }
+    .btn-email:hover { opacity: 0.85; }
+
+    /* DIVIDER */
+    hr { border: none; border-top: 1px solid var(--border); }
+
+    /* FOOTER */
+    footer {
+      padding: 36px 48px;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    footer span { font-size: 13px; color: var(--muted); }
+    footer a { font-size: 13px; color: var(--muted); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .contact-card { padding: 32px 24px; }
+      footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <span>📷 PhotoEye Pro</span>
+  </a>
+  <a class="nav-back" href="index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M10 12L6 8l4-4"/>
+    </svg>
+    Back to Support
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-icon">🔒</div>
+  <h1>Your <span>privacy</span><br>is non-negotiable.</h1>
+  <div class="hero-meta">
+    <span class="badge">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+      Zero Data Collection
+    </span>
+    <span class="badge-date">Last updated: May 6, 2026</span>
+  </div>
+</section>
+
+<!-- SUMMARY CARDS -->
+<div class="summary">
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="icon">📵</div>
+      <div>
+        <h3>No Analytics</h3>
+        <p>We use zero tracking or analytics SDKs. No data is collected about how you use the app.</p>
+      </div>
+    </div>
+    <div class="summary-card">
+      <div class="icon">📸</div>
+      <div>
+        <h3>Photos Stay on Device</h3>
+        <p>All camera processing happens locally. Your photos never leave your iPhone.</p>
+      </div>
+    </div>
+    <div class="summary-card">
+      <div class="icon">🚫</div>
+      <div>
+        <h3>No Third Parties</h3>
+        <p>No advertising networks, data brokers, or third-party SDKs. None. Ever.</p>
+      </div>
+    </div>
+    <div class="summary-card">
+      <div class="icon">🍎</div>
+      <div>
+        <h3>Apple Handles Payments</h3>
+        <p>Purchases go through Apple's StoreKit. We never see your payment information.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<!-- CONTENT -->
+<div class="content">
+
+  <div class="section-block">
+    <div class="section-number">01 — Overview</div>
+    <h2>The short version</h2>
+    <p>PhotoEye Pro is built with a simple philosophy: your data belongs to you. The app does not collect, transmit, or sell any personal information. Everything runs on your device.</p>
+    <div class="highlight-box">
+      <p><strong>The complete truth:</strong> We have no servers that receive your data. We have no database of users. We genuinely do not know who you are — and that is by design.</p>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-number">02 — Camera & Photos</div>
+    <h2>What we access and why</h2>
+    <p>PhotoEye Pro requests the following device permissions:</p>
+    <ul>
+      <li><strong>Camera</strong> — required to display the live viewfinder and capture photos. No frames are recorded or transmitted.</li>
+      <li><strong>Photo Library</strong> — required to save captured photos and load them into the gallery. No photos are uploaded anywhere.</li>
+      <li><strong>Motion & Gyroscope</strong> — used for the level/horizon indicator. This data is never stored or transmitted.</li>
+    </ul>
+    <p>All image processing (filters, effects, spectral vision) is performed on-device using Apple's Core Image and Metal frameworks. Nothing is sent to a server.</p>
+  </div>
+
+  <div class="section-block">
+    <div class="section-number">03 — Local Storage</div>
+    <h2>What stays on your device</h2>
+    <p>The following information is stored locally using Apple's UserDefaults and never transmitted:</p>
+    <ul>
+      <li>Whether you have completed the onboarding flow</li>
+      <li>How many times you have opened the app (used to determine paywall timing)</li>
+      <li>Whether you have purchased the lifetime unlock (handled by Apple's StoreKit)</li>
+    </ul>
+    <p>This data exists solely on your device. Deleting the app removes it entirely.</p>
+  </div>
+
+  <div class="section-block">
+    <div class="section-number">04 — Purchases</div>
+    <h2>In-App Purchases</h2>
+    <p>PhotoEye Pro offers a one-time lifetime purchase at $19.99. All payment processing is handled exclusively by Apple's App Store and StoreKit 2 framework.</p>
+    <ul>
+      <li>We never receive or store your payment card details</li>
+      <li>Purchase verification is performed locally via Apple's signed transactions</li>
+      <li>To restore a purchase, use the "Restore Purchase" button in the app — this queries Apple's servers directly</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <div class="section-number">05 — Third Parties</div>
+    <h2>No third-party SDKs</h2>
+    <p>PhotoEye Pro contains no third-party libraries, SDKs, or frameworks beyond Apple's own system frameworks. Specifically, we do not use:</p>
+    <ul>
+      <li>Analytics platforms (Firebase, Amplitude, Mixpanel, etc.)</li>
+      <li>Advertising networks (AdMob, Meta Audience Network, etc.)</li>
+      <li>Crash reporting tools (Sentry, Crashlytics, etc.)</li>
+      <li>Social login or social sharing SDKs</li>
+    </ul>
+  </div>
+
+  <div class="section-block">
+    <div class="section-number">06 — Children</div>
+    <h2>Children's Privacy</h2>
+    <p>PhotoEye Pro does not knowingly collect any information from anyone, including children under 13. Since we collect no data at all, the app is inherently compliant with COPPA and similar regulations.</p>
+  </div>
+
+  <div class="section-block">
+    <div class="section-number">07 — Changes</div>
+    <h2>Policy updates</h2>
+    <p>If we ever change this privacy policy, the updated version will be posted on this page with a new effective date. Since our policy is "collect nothing," we do not anticipate meaningful changes.</p>
+  </div>
+
+</div>
+
+<hr />
+
+<!-- CONTACT -->
+<div class="contact-final">
+  <div class="contact-card">
+    <h2>Questions about privacy?</h2>
+    <p>We are happy to answer any questions about how PhotoEye Pro handles your data. Expect a response within 24 hours.</p>
+    <a href="mailto:support@photoeyepro.app" class="btn-email">
+      ✉️ support@photoeyepro.app
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 PhotoEye Pro. All rights reserved.</span>
+  <div style="display:flex;gap:24px;">
+    <a href="index.html">Support</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="https://apps.apple.com/app/photoeyepro">App Store</a>
+  </div>
+</footer>
+
+</body>
+</html>
