@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhotoEye Pro — Support</title>
+  <style>
+    :root {
+      --bg: #08080f;
+      --surface: #111120;
+      --border: rgba(255,255,255,0.07);
+      --accent: #ffffff;
+      --muted: rgba(255,255,255,0.45);
+      --cyan: #00d4ff;
+      --orange: #ff5a1f;
+      --indigo: #7c6bff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0;
+      background: rgba(8,8,15,0.85);
+      backdrop-filter: blur(20px);
+      z-index: 100;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo img { width: 40px; height: 40px; border-radius: 10px; }
+    .nav-logo span { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+    nav a:hover { color: #fff; }
+    .nav-links { display: flex; gap: 32px; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 100px 24px 80px;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(124,107,255,0.12) 0%, transparent 70%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12px; color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 72px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--cyan); }
+    .hero p {
+      font-size: 18px; color: var(--muted);
+      max-width: 560px; margin: 0 auto 40px;
+    }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: #fff; color: #000;
+      padding: 14px 28px; border-radius: 14px;
+      font-weight: 700; font-size: 15px;
+      text-decoration: none; transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-secondary {
+      background: transparent; color: #fff;
+      padding: 14px 28px; border-radius: 14px;
+      font-weight: 600; font-size: 15px;
+      text-decoration: none; border: 1px solid var(--border);
+      transition: background .2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.06); }
+
+    /* FEATURES */
+    .section { padding: 80px 24px; max-width: 1000px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 2px;
+      color: var(--cyan); text-transform: uppercase; margin-bottom: 12px;
+    }
+    .section h2 {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 800; letter-spacing: -1px; margin-bottom: 48px;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      transition: transform .2s, border-color .2s;
+    }
+    .feature-card:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.14); }
+    .feature-icon {
+      font-size: 28px; margin-bottom: 14px;
+    }
+    .feature-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { font-size: 14px; color: var(--muted); }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+    }
+    .faq-item h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .faq-item p { font-size: 14px; color: var(--muted); }
+
+    /* CONTACT */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 48px;
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .contact-card h2 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+    .contact-card p { color: var(--muted); margin-bottom: 28px; }
+    .contact-card a.btn-primary { display: inline-block; }
+
+    /* PRIVACY */
+    .privacy-section { max-width: 720px; margin: 0 auto; padding: 80px 24px; }
+    .privacy-section h2 { font-size: 36px; font-weight: 800; margin-bottom: 8px; }
+    .privacy-section .updated { font-size: 13px; color: var(--muted); margin-bottom: 40px; }
+    .privacy-block { margin-bottom: 36px; }
+    .privacy-block h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--cyan); }
+    .privacy-block p, .privacy-block ul { font-size: 15px; color: var(--muted); }
+    .privacy-block ul { padding-left: 20px; }
+    .privacy-block ul li { margin-bottom: 6px; }
+
+    /* DIVIDER */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 48px;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    footer span { font-size: 13px; color: var(--muted); }
+    footer a { font-size: 13px; color: var(--muted); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .nav-links { gap: 16px; }
+      footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span>📷 PhotoEye Pro</span>
+  </div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+    <a href="#privacy">Privacy</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">📱 Available on the App Store</div>
+  <h1>See <span>beyond</span><br>the visible.</h1>
+  <p>Professional camera tools, GPU-accelerated filters, infrared & ultraviolet spectral vision — all in one app.</p>
+  <div class="hero-actions">
+    <a href="https://apps.apple.com/app/photoeyepro" class="btn-primary">Download on App Store</a>
+    <a href="#contact" class="btn-secondary">Get Support</a>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="section-label">What's inside</div>
+  <h2>Everything a pro needs.</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🎨</div>
+      <h3>30 Professional Filters</h3>
+      <p>From classic black & white to cinematic color grading — live preview on every shot.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">✨</div>
+      <h3>16 AI Camera Effects</h3>
+      <p>Vignette, sharpen, vibrance, dramatic contrast, warm & cool tones. Real-time, zero lag.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">👁️</div>
+      <h3>Spectral Vision</h3>
+      <p>Infrared (&gt;700nm) and Ultraviolet (&lt;400nm) modes. See heat patterns, fluorescence, and hidden details.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌙</div>
+      <h3>6 Night Modes</h3>
+      <p>Star trails, long exposure simulation, moonlight mode — perfect shots even in complete darkness.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <h3>Smart Lens Detection</h3>
+      <p>AI-powered smudge detection alerts you when your camera lens needs cleaning.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">👑</div>
+      <h3>Lifetime Access</h3>
+      <p>One payment. No subscriptions. All features unlocked forever — including future updates.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="section-label">FAQ</div>
+  <h2>Common questions.</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h3>How do I restore my purchase?</h3>
+      <p>Open PhotoEye Pro → on the paywall screen, tap <strong>Restore Purchase</strong>. Make sure you're signed in with the same Apple ID used for the original purchase.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is there a subscription?</h3>
+      <p>No. PhotoEye Pro uses a one-time, lifetime purchase model at $19.99. Pay once, use forever — no recurring charges.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I use it on multiple devices?</h3>
+      <p>Yes. Your purchase is tied to your Apple ID and can be restored on any device signed in with the same account.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What iOS version is required?</h3>
+      <p>PhotoEye Pro requires iOS 16 or later.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does the app collect my photos?</h3>
+      <p>No. All processing happens entirely on your device. We do not collect, transmit, or store any photos or personal data.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What is Spectral Vision?</h3>
+      <p>Spectral Vision simulates infrared (&gt;700nm) and ultraviolet (&lt;400nm) imaging using Core Image GPU filters. It's an artistic and scientific visualization tool — not actual IR/UV hardware.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-label">Support</div>
+  <h2>We're here to help.</h2>
+  <div class="contact-card">
+    <h2>Get in Touch</h2>
+    <p>Having trouble with the app or have a question? Send us an email and we'll get back to you within 24 hours.</p>
+    <a href="mailto:support@photoeyepro.app" class="btn-primary">support@photoeyepro.app</a>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PRIVACY -->
+<section class="privacy-section" id="privacy">
+  <h2>Privacy Policy</h2>
+  <p class="updated">Last updated: May 5, 2026</p>
+
+  <div class="privacy-block">
+    <h3>No Data Collection</h3>
+    <p>PhotoEye Pro does not collect, store, or transmit any personal data. All camera processing, filters, and effects run entirely on your device using Apple's Core Image and Metal frameworks.</p>
+  </div>
+
+  <div class="privacy-block">
+    <h3>Camera & Photos Access</h3>
+    <p>The app requests access to your camera and photo library solely to provide its core functionality. Photos are never uploaded or shared with any server.</p>
+  </div>
+
+  <div class="privacy-block">
+    <h3>Purchase Data</h3>
+    <p>In-app purchase status is handled entirely by Apple's StoreKit framework. We do not have access to your payment information. Purchase status is stored locally on your device via Apple's transaction system.</p>
+  </div>
+
+  <div class="privacy-block">
+    <h3>No Third-Party SDKs</h3>
+    <p>We do not use any analytics, advertising, or tracking SDKs. There are no third-party libraries that could collect data about you.</p>
+  </div>
+
+  <div class="privacy-block">
+    <h3>Local Storage Only</h3>
+    <p>App preferences (onboarding status, purchase status, launch count) are stored locally on your device using Apple's UserDefaults. This data never leaves your device.</p>
+  </div>
+
+  <div class="privacy-block">
+    <h3>Contact</h3>
+    <p>Questions about privacy? Email us at <a href="mailto:support@photoeyepro.app" style="color:var(--cyan)">support@photoeyepro.app</a></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 PhotoEye Pro. All rights reserved.</span>
+  <div style="display:flex;gap:24px;">
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#contact">Support</a>
+    <a href="https://apps.apple.com/app/photoeyepro">App Store</a>
+  </div>
+</footer>
+
+</body>
+</html>
